@@ -1,0 +1,27 @@
+{
+  "name": "libraryapp",
+  "version": "1.0.0",
+  "description": "First Express app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/veryaustin/exploring-node.git"
+  },
+  "keywords": [
+    "[Express",
+    "NodeJS",
+    "]"
+  ],
+  "author": "Austin Lauritsen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/veryaustin/exploring-node/issues"
+  },
+  "homepage": "https://github.com/veryaustin/exploring-node#readme",
+  "dependencies": {
+    "express": "4.13.3"
+  }
+}

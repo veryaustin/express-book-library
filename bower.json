@@ -1,0 +1,26 @@
+{
+  "name": "libraryapp",
+  "description": "First Express app",
+  "main": "app.js",
+  "authors": [
+    "Austin Lauritsen <austin@veryaustin.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "[Express",
+    "NodeJS",
+    "]"
+  ],
+  "homepage": "https://github.com/veryaustin/exploring-express",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.7",
+    "font-awesome": "~4.4.0"
+  }
+}

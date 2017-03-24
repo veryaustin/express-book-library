@@ -3,9 +3,9 @@ var ObjectId = require('mongodb').ObjectID;
 
 var bookController = function (bookService, nav) {
   var middleware = function (req, res, next) {
-    if (!req.user) {
-      res.redirect('/');
-    }
+    // if (!req.user) {
+    //   res.redirect('/');
+    // }
     next();
   };
 
@@ -41,11 +41,22 @@ var bookController = function (bookService, nav) {
           _id: id
         },
         function (err, results) {
-          res.render('bookView', {
-            title: 'Books',
-            nav: nav,
-            book: results
-          });
+          if (results.bookId) {
+            bookService.getBookById(results.bookId, function (err, book) {
+              results.book = book;
+              res.render('bookView', {
+                title: 'Books',
+                nav: nav,
+                book: results
+              }); 
+            });
+          } else {
+            res.render('bookView', {
+              title: 'Books',
+              nav: nav,
+              book: results
+            });
+          }
         }
       );
     });

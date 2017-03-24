@@ -16,9 +16,13 @@ var nav = [{
 }];
 
 var bookRouter = require('./src/routes/bookRoutes')(nav);
+var adminRouter = require('./src/routes/adminRoutes')(nav);
 
-// User the bookRouter for /books
+// Use the bookRouter for /books
 app.use('/books', bookRouter);
+
+// Use the adminRouter for /admin
+app.use('/admin', adminRouter);
 
 // Setup Static Directories
 app.use(express.static('public'));

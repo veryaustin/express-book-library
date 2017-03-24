@@ -4,7 +4,7 @@ var express = require('express');
 var app = express();
 
 // Set Port
-var port = 5000;
+var port = process.env.PORT || 5000;
 
 // Setup Static Directories
 app.use(express.static('public'));

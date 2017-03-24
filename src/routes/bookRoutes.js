@@ -3,7 +3,13 @@ var bookRouter = express.Router();
 var mongodb = require('mongodb').MongoClient;
 var ObjectId = require('mongodb').ObjectID;
 
-var router = function(nav) {
+var router = function (nav) {
+  bookRouter.use(function (req, res, next) {
+    if (!req.user) {
+      res.redirect('/');
+    }
+    next();
+  });
   bookRouter.route('/')
     .get(function (req, res) {
 
@@ -13,7 +19,7 @@ var router = function(nav) {
         var collection = db.collection('books');
 
         collection.find({}).toArray(
-          function(err, results) {
+          function (err, results) {
             res.render('bookListView', {
               title: 'Books',
               nav: nav,
@@ -34,7 +40,9 @@ var router = function(nav) {
       mongodb.connect(url, function (err, db) {
         var collection = db.collection('books');
 
-        collection.findOne({_id: id},
+        collection.findOne({
+            _id: id
+          },
           function (err, results) {
             res.render('bookView', {
               title: 'Books',

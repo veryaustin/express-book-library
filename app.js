@@ -1,5 +1,8 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
+var passport = require('passport');
+var session = require('express-session');
 
 // Instatiate and instance of express
 var app = express();
@@ -24,6 +27,9 @@ var authRouter = require('./src/routes/authRoutes')(nav);
 app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
+app.use(cookieParser());
+app.use(session({secret: 'B9A306A3CE4AD2A3BF3CD1D3E76C212B45ED5596ABE0E8E580881852DDFC53F9'}));
+require('./src/config/passport')(app);
 
 // Static
 app.set('views', 'src/views');

@@ -1,4 +1,5 @@
 var express = require('express');
+var bodyParser = require('body-parser');
 
 // Instatiate and instance of express
 var app = express();
@@ -17,6 +18,15 @@ var nav = [{
 
 var bookRouter = require('./src/routes/bookRoutes')(nav);
 var adminRouter = require('./src/routes/adminRoutes')(nav);
+var authRouter = require('./src/routes/authRoutes')(nav);
+
+// Middleware
+app.use(express.static('public'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
+
+// Static
+app.set('views', 'src/views');
 
 // Use the bookRouter for /books
 app.use('/books', bookRouter);
@@ -24,9 +34,8 @@ app.use('/books', bookRouter);
 // Use the adminRouter for /admin
 app.use('/admin', adminRouter);
 
-// Setup Static Directories
-app.use(express.static('public'));
-app.set('views', 'src/views');
+// Use the authRouter for /auth
+app.use('/auth', authRouter);
 
 // Set view engine to ejs
 app.set('view engine', 'ejs');

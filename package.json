@@ -1,7 +1,7 @@
 {
   "name": "libraryapp",
   "version": "1.0.0",
-  "description": "First Express app",
+  "description": "A book library built with ExpressJS & NodeJS",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/veryaustin/exploring-node.git"
+    "url": "git+https://github.com/veryaustin/express-book-library.git"
   },
   "keywords": [
     "[Express",
@@ -19,9 +19,9 @@
   "author": "Austin Lauritsen",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/veryaustin/exploring-node/issues"
+    "url": "https://github.com/veryaustin/express-book-library/issues"
   },
-  "homepage": "https://github.com/veryaustin/exploring-node#readme",
+  "homepage": "https://github.com/veryaustinexpress-book-library#readme",
   "dependencies": {
     "body-parser": "^1.14.1",
     "cookie-parser": "^1.4.0",
